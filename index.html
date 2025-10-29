@@ -25,6 +25,31 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	</meta>
 	<link href="assets/css/styles.css" rel="stylesheet" />
+	<style>
+		/* Estilos para la animación del timeline al hacer scroll */
+		.ribbon-icon-wrap {
+			transition: all 0.4s ease;
+		}
+
+		/* Círculo del icono relleno cuando está activo */
+		.ribbon-icon-wrap.timeline-icon-active .ribbon-icon {
+			background-color: #7cb7a7 !important;
+			border-color: #7cb7a7 !important;
+			transition: all 0.4s ease;
+		}
+
+		/* Icono blanco cuando está activo */
+		.ribbon-icon-wrap.timeline-icon-active .et-pb-icon,
+		.ribbon-icon-wrap.timeline-icon-active .dipi_timeline_font_icon {
+			color: #ffffff !important;
+			transition: all 0.4s ease;
+		}
+
+		/* Efecto de escala suave al activarse */
+		.ribbon-icon-wrap.timeline-icon-active {
+			transform: scale(1.1);
+		}
+	</style>
 </head>
 <body __processed_10df5e85-a18a-4179-9e82-3bbf2bfccea2__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjMzIiwic2NvcmUiOjIwMDMzfV0=" class="wp-singular page-template page-template-page-template-blank page-template-page-template-blank-php page page-id-3194 page-child parent-pageid-3156 custom-background wp-theme-Divi dipi-custom-archive-page dipi-archive- dipi-fix-search-icon et_button_no_icon et_pb_button_helper_class et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db chrome" cz-shortcut-listen="true" id="inicio" style="overflow-x: hidden;">
 	<link data-spai-egr="1" href="assets/icons/cropped-favicon-32x32-1-32x32_1.png" rel="icon" sizes="32x32" />
@@ -631,6 +656,47 @@
 
 		// Inicializar
 		toggleFields();
+	})();
+
+	// Animación del timeline al hacer scroll
+	(function() {
+		// Obtener todos los iconos del timeline
+		const timelineIcons = document.querySelectorAll('.ribbon-icon-wrap');
+		const timelineContainer = document.querySelector('.dipi_timeline_container');
+
+		if (!timelineIcons.length || !timelineContainer) return;
+
+		// Función para actualizar los iconos según el scroll
+		function updateTimelineIcons() {
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			const windowHeight = window.innerHeight;
+
+			timelineIcons.forEach((iconWrap, index) => {
+				const iconRect = iconWrap.getBoundingClientRect();
+				const iconTop = iconRect.top + scrollTop;
+				const iconCenter = iconTop + (iconRect.height / 2);
+
+				// Calcular si el scroll ha llegado al icono
+				// El icono se activa cuando está en el 40% superior de la ventana
+				const activationPoint = scrollTop + (windowHeight * 0.4);
+
+				if (activationPoint >= iconCenter) {
+					// Activar el icono
+					
+					iconWrap.classList.add('timeline-icon-active');
+					iconWrap.firstChild.firstChild.classList.add('timeline-icon-active');
+				} else {
+					// Desactivar el icono (opcional, si quieres que se desactive al hacer scroll hacia arriba)
+					iconWrap.classList.remove('timeline-icon-active');
+				}
+			});
+		}
+
+		// Ejecutar al hacer scroll
+		window.addEventListener('scroll', updateTimelineIcons);
+
+		// Ejecutar al cargar la página
+		updateTimelineIcons();
 	})();
 
 	// Manejar el envío del formulario con AJAX
