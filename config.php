@@ -11,6 +11,10 @@ define('DB_USER', 'root');  // Actualiza con tu usuario de MySQL
 define('DB_PASS', '');      // Actualiza con tu contraseña de MySQL
 define('DB_NAME', 'boda_fatima_david');  // Actualiza con el nombre de tu base de datos
 
+// Token de acceso para el panel de administración
+// IMPORTANTE: Cambia este token por uno seguro y único
+define('ADMIN_TOKEN', 'fatima-david-2026-admin');  // Cambia este valor
+
 // Configuración de zona horaria
 date_default_timezone_set('Europe/Madrid');
 

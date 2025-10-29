@@ -1,0 +1,40 @@
+═══════════════════════════════════════════════════════════════
+   PANEL DE ADMINISTRACIÓN - BODA FÁTIMA & DAVID
+═══════════════════════════════════════════════════════════════
+
+🔒 URL DE ACCESO CON TOKEN:
+
+http://localhost/documents/FatimayDavid/admin_invitados.php?token=fatima-david-2026-admin
+
+
+⚠️ IMPORTANTE - SEGURIDAD:
+
+1. CAMBIA EL TOKEN antes de usar en producción
+   - Edita el archivo: config.php
+   - Busca la línea: define('ADMIN_TOKEN', '...');
+   - Cámbiala por un token único y seguro
+
+2. NO COMPARTAS esta URL con nadie
+   - Cualquiera con el token puede acceder al panel
+   - Guárdala en tus favoritos del navegador
+
+3. Token recomendado:
+   - Mínimo 20 caracteres
+   - Incluye letras, números y guiones
+   - Ejemplo: boda-fatima-david-2026-MiToken-Secreto-12345
+
+
+📊 EXPORTAR A EXCEL:
+
+Una vez dentro del panel, haz clic en "Exportar a Excel"
+para descargar todos los datos de los invitados.
+
+
+🆘 AYUDA:
+
+Si olvidas el token:
+- Abre el archivo config.php
+- Busca la constante ADMIN_TOKEN
+- Ahí verás el token actual
+
+═══════════════════════════════════════════════════════════════

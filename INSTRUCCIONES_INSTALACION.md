@@ -174,6 +174,7 @@ Si deseas añadir notificaciones por email cuando alguien confirma:
 - [ ] Probado formulario de confirmación
 - [ ] Probada edición de reserva
 - [ ] Verificadas reservas en phpMyAdmin
+- [ ] Accedido al panel de administración
 
 ---
 
@@ -186,6 +187,64 @@ Tu sistema de reservas está funcionando. Los invitados pueden:
 - Ver una página de confirmación bonita
 
 Tú puedes:
-- Ver todas las reservas en phpMyAdmin
-- Exportar los datos a Excel
-- Consultar estadísticas de asistencia
+- **Ver todas las reservas en el Panel de Administración** (`admin_invitados.php`)
+- Exportar los datos a Excel con un clic
+- Ver estadísticas en tiempo real
+- Filtrar y buscar invitados
+- Ver detalles completos de cada reserva
+
+## 👨‍💼 Panel de Administración
+
+### 🔒 Configurar Token de Acceso
+
+**IMPORTANTE**: Antes de usar el panel, cambia el token de acceso en el archivo `config.php`:
+
+```php
+define('ADMIN_TOKEN', 'fatima-david-2026-admin');  // Cambia este valor por uno único
+```
+
+**Ejemplo de token seguro:** `boda-2026-miTokenSuperSecreto-12345`
+
+### Acceder al Panel
+
+Usa la URL con tu token personalizado:
+```
+http://localhost/documents/FatimayDavid/admin_invitados.php?token=TU_TOKEN_AQUI
+```
+
+**Ejemplo con el token por defecto:**
+```
+http://localhost/documents/FatimayDavid/admin_invitados.php?token=fatima-david-2026-admin
+```
+
+⚠️ **Importante**: Guarda esta URL en tus favoritos y NO la compartas con nadie.
+
+### Características del Panel:
+
+✨ **Estadísticas en Tiempo Real:**
+- Total de respuestas
+- Confirmaciones y declinaciones
+- Total de personas (adultos + niños)
+- Preferencias de menú (carne/pescado)
+
+🔍 **Filtros Avanzados:**
+- Buscar por nombre, email o teléfono
+- Filtrar por estado de asistencia
+- Configurar cantidad de registros por página
+
+📊 **Exportación a Excel:**
+- Un clic para descargar todos los datos
+- Archivo CSV compatible con Excel
+- Incluye todos los campos de la reserva
+
+👁️ **Vista Detallada:**
+- Modal con información completa de cada invitado
+- Datos de acompañantes
+- Preferencias alimentarias
+- Fechas de registro y actualización
+
+🎨 **Diseño Moderno:**
+- Interfaz limpia y profesional
+- Responsive (funciona en móviles)
+- Animaciones suaves
+- Código de colores intuitivo
