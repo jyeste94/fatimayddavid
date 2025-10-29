@@ -66,7 +66,7 @@
 							</div>
 							<div bis_skin_checked="1" class="et_pb_section et_pb_section_4 et_pb_fullwidth_section et_section_regular">
 								<div bis_skin_checked="1" class="et_pb_module et_pb_fullwidth_image et_pb_fullwidth_image_1">
-									<img alt="Free Spirit 0201" class="wp-image-9114" data-spai="1" data-spai-upd="390" decoding="async" height="289" src="assets/images/image_04.png" title="0201 - 2023-09-12T142107.323" width="390" /><noscript data-spai="1"><img alt="Free Spirit 0201" class="wp-image-9114" data-spai-egr="1" decoding="async" height="800" sizes="(max-width: 1080px) 100vw, 1080px" src="assets/images/image_05.jpg" title="0201 - 2023-09-12T142107.323" width="1080"/></noscript>
+									<img alt="Free Spirit 0201" class="wp-image-9114" data-spai="1" data-spai-upd="390" decoding="async" height="289" src="assets/images/image_04.png" title="0201 - 2023-09-12T142107.323" width="390" /><noscript data-spai="1"><img alt="Free Spirit 0201" class="wp-image-9114" data-spai-egr="1" decoding="async" height="800" sizes="(max-width: 1080px) 100vw, 1080px" src="assets/images/image_05.png" title="0201 - 2023-09-12T142107.323" width="1080"/></noscript>
 								</div>
 							</div>
 							<div bis_skin_checked="1" class="et_pb_section et_pb_section_5 et_section_regular">
@@ -329,31 +329,31 @@
 								<div bis_skin_checked="1" class="et_pb_row et_pb_row_11">
 									<div bis_skin_checked="1" class="et_pb_column et_pb_column_4_4 et_pb_column_11 et_pb_css_mix_blend_mode_passthrough et-last-child">
 										<div bis_skin_checked="1" class="et_pb_module et_pb_contact_form_0 et_pb_contact_form_container clearfix et_had_animation" data-form_unique_id="27739912-f15b-460b-b117-a53d7b58bccc" data-form_unique_num="0" id="et_pb_contact_form_1" style="">
-											<div bis_skin_checked="1" class="et-pb-contact-message"></div>
+											<div bis_skin_checked="1" class="et-pb-contact-message" id="form-response-message"></div>
 											<div bis_skin_checked="1" class="et_pb_contact">
-												<form action="procesar_reserva.php" class="et_pb_contact_form clearfix" method="post">
+												<form id="reserva-form" class="et_pb_contact_form clearfix" method="post">
 													<p class="et_pb_contact_field et_pb_contact_field_0 et_pb_contact_field_half" data-id="asistencia" data-type="select">
-														<label class="et_pb_contact_form_label" for="et_pb_contact_asistencia_0">¿Asistirás?</label>
-														<select class="et_pb_contact_select input" data-field_type="select" data-original_id="asistencia" data-required_mark="required" id="et_pb_contact_asistencia_0" name="et_pb_contact_asistencia_0">
+														<label class="et_pb_contact_form_label" for="et_pb_contact_asistencia_0">¿Asistirás? *</label>
+														<select class="et_pb_contact_select input" data-field_type="select" data-original_id="asistencia" data-required_mark="required" id="et_pb_contact_asistencia_0" name="et_pb_contact_asistencia_0" required>
 <option value="">¿Asistirás?</option><option value="Declino asistencia">Declino asistencia</option><option value="Acepto con mucho placer">Acepto con mucho placer</option>
 </select>
 													</p>
 													<p class="et_pb_contact_field et_pb_contact_field_1 et_pb_contact_field_half et_pb_contact_field_last" data-conditional-logic='[["asistencia","is not empty","Declino asistencia"]]' data-conditional-relation="any" data-id="nombre" data-type="input" style="display: none;">
-														<label class="et_pb_contact_form_label" for="et_pb_contact_nombre_0">Nombre</label>
-														<input class="input" data-field_type="input" data-original_id="nombre" data-required_mark="required" id="et_pb_contact_nombre_0" name="et_pb_contact_nombre_0" novalidate="novalidate" placeholder="Nombre" type="text" value="" />
+														<label class="et_pb_contact_form_label" for="et_pb_contact_nombre_0">Nombre *</label>
+														<input class="input" data-field_type="input" data-original_id="nombre" data-required_mark="required" id="et_pb_contact_nombre_0" name="et_pb_contact_nombre_0" placeholder="Nombre" type="text" value="" required />
 													</p>
 													<p class="et_pb_contact_field et_pb_contact_field_password et_pb_contact_field_half" data-conditional-logic='[["asistencia","is not empty","Declino asistencia"]]' data-conditional-relation="any" data-id="password" data-type="input" style="display: none;">
-														<label class="et_pb_contact_form_label" for="et_pb_contact_password_0">Contraseña (para editar tu reserva)</label>
-														<input class="input" data-field_type="input" data-original_id="password" data-required_mark="required" id="et_pb_contact_password_0" name="et_pb_contact_password_0" novalidate="novalidate" placeholder="Contraseña" type="password" value="" style="background-color: #fff !important; opacity: 1 !important; color: #333 !important;" />
-														<small style="display: block; margin-top: 5px; color: #666; font-size: 12px; font-style: italic;">La contraseña solo se necesita si deseas editar algún campo en el futuro</small>
+														<label class="et_pb_contact_form_label" for="et_pb_contact_password_0">Contraseña (opcional)</label>
+														<input class="input" data-field_type="input" data-original_id="password" data-required_mark="not_required" id="et_pb_contact_password_0" name="et_pb_contact_password_0" placeholder="Contraseña" type="password" value="" style="background-color: #fff !important; opacity: 1 !important; color: #333 !important;" />
+														<small style="display: block; margin-top: 5px; color: #666; font-size: 12px; font-style: italic;">Solo necesaria si deseas editar tu reserva en el futuro</small>
 													</p>
 													<p class="et_pb_contact_field et_pb_contact_field_2 et_pb_contact_field_half" data-conditional-logic='[["asistencia","is not empty","Acepto con mucho placer"]]' data-conditional-relation="any" data-id="telefono" data-type="input" style="display: none;">
 														<label class="et_pb_contact_form_label" for="et_pb_contact_telefono_0">Teléfono</label>
 														<input class="input" data-field_type="input" data-original_id="telefono" data-required_mark="not_required" id="et_pb_contact_telefono_0" name="et_pb_contact_telefono_0" novalidate="novalidate" placeholder="Teléfono" type="text" value="" />
 													</p>
 													<p class="et_pb_contact_field et_pb_contact_field_3 et_pb_contact_field_half et_pb_contact_field_last" data-conditional-logic='[["asistencia","is not empty",""]]' data-conditional-relation="any" data-id="email" data-type="email" style="display: none;">
-														<label class="et_pb_contact_form_label" for="et_pb_contact_email_0">Email</label>
-														<input class="input" data-field_type="email" data-original_id="email" data-required_mark="not_required" id="et_pb_contact_email_0" name="et_pb_contact_email_0" novalidate="novalidate" placeholder="Email" type="text" value="" />
+														<label class="et_pb_contact_form_label" for="et_pb_contact_email_0">Email *</label>
+														<input class="input" data-field_type="email" data-original_id="email" data-required_mark="required" id="et_pb_contact_email_0" name="et_pb_contact_email_0" placeholder="Email" type="email" value="" required />
 													</p>
 													<p class="et_pb_contact_field et_pb_contact_field_4 et_pb_contact_field_half" data-conditional-logic='[["asistencia","is","Acepto con mucho placer"]]' data-conditional-relation="any" data-id="vieneacompanante" data-type="select" style="display: none;">
 														<label class="et_pb_contact_form_label" for="et_pb_contact_vieneacompanante_0">¿Vienen acompañantes?</label>
@@ -631,6 +631,82 @@
 
 		// Inicializar
 		toggleFields();
+	})();
+
+	// Manejar el envío del formulario con AJAX
+	(function() {
+		const form = document.getElementById('reserva-form');
+		const responseMessage = document.getElementById('form-response-message');
+
+		if (form) {
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+
+				// Obtener los datos del formulario
+				const formData = new FormData(form);
+
+				// Mostrar mensaje de carga
+				responseMessage.innerHTML = '<p style="text-align: center; padding: 20px; background: #f0f0f0; border-radius: 5px; margin: 20px 0;">Procesando tu confirmación...</p>';
+				responseMessage.style.display = 'block';
+
+				// Enviar los datos con fetch
+				fetch('procesar_reserva.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						// Mensaje de éxito
+						responseMessage.innerHTML = `
+							<div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+								<h3 style="margin: 0 0 15px 0; font-size: 24px; font-weight: bold;">¡Perfecto!</h3>
+								<p style="margin: 0; font-size: 16px; line-height: 1.6;">${data.message}</p>
+								${data.accion === 'actualizar' ? '<p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Tu reserva ha sido actualizada correctamente.</p>' : ''}
+							</div>
+						`;
+
+						// Limpiar formulario si es una nueva reserva
+						if (data.accion !== 'actualizar') {
+							form.reset();
+							// Resetear la visualización de campos
+							const asistenciaSelect = document.getElementById('et_pb_contact_asistencia_0');
+							if (asistenciaSelect) {
+								asistenciaSelect.value = '';
+								asistenciaSelect.dispatchEvent(new Event('change'));
+							}
+						}
+
+						// Scroll suave al mensaje
+						responseMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					} else {
+						// Mensaje de error
+						responseMessage.innerHTML = `
+							<div style="text-align: center; padding: 30px; background: #f44336; color: white; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+								<h3 style="margin: 0 0 15px 0; font-size: 24px; font-weight: bold;">Oops...</h3>
+								<p style="margin: 0; font-size: 16px; line-height: 1.6;">${data.message}</p>
+							</div>
+						`;
+
+						// Scroll suave al mensaje
+						responseMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					}
+				})
+				.catch(error => {
+					// Error de conexión
+					responseMessage.innerHTML = `
+						<div style="text-align: center; padding: 30px; background: #ff9800; color: white; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+							<h3 style="margin: 0 0 15px 0; font-size: 24px; font-weight: bold;">Error de conexión</h3>
+							<p style="margin: 0; font-size: 16px; line-height: 1.6;">No se pudo conectar con el servidor. Por favor, inténtalo de nuevo más tarde.</p>
+						</div>
+					`;
+					console.error('Error:', error);
+
+					// Scroll suave al mensaje
+					responseMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				});
+			});
+		}
 	})();
 	</script>
 </body>

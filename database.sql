@@ -11,10 +11,10 @@ USE boda_fatima_david;
 CREATE TABLE IF NOT EXISTS reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    password VARCHAR(255) DEFAULT NULL,
     asistencia VARCHAR(50) NOT NULL,
     telefono VARCHAR(20) DEFAULT NULL,
-    email VARCHAR(255) DEFAULT NULL,
+    email VARCHAR(255) NOT NULL,
     viene_acompanante VARCHAR(50) DEFAULT NULL,
     num_adultos INT DEFAULT 0,
     num_ninos INT DEFAULT 0,
@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS reservas (
     comentario TEXT DEFAULT NULL,
     especificaciones_alimentarias TEXT DEFAULT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    UNIQUE KEY idx_nombre (nombre)
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Índices adicionales para búsquedas rápidas
 CREATE INDEX idx_asistencia ON reservas(asistencia);
 CREATE INDEX idx_fecha_registro ON reservas(fecha_registro);
+CREATE INDEX idx_email ON reservas(email);
