@@ -10,8 +10,8 @@ http://localhost/documents/FatimayDavid/admin_invitados.php?token=fatima-david-2
 ⚠️ IMPORTANTE - SEGURIDAD:
 
 1. CAMBIA EL TOKEN antes de usar en producción
-   - Edita el archivo: config.php
-   - Busca la línea: define('ADMIN_TOKEN', '...');
+   - Edita el archivo: .env
+   - Busca la línea: ADMIN_TOKEN=...
    - Cámbiala por un token único y seguro
 
 2. NO COMPARTAS esta URL con nadie
@@ -33,8 +33,12 @@ para descargar todos los datos de los invitados.
 🆘 AYUDA:
 
 Si olvidas el token:
-- Abre el archivo config.php
-- Busca la constante ADMIN_TOKEN
+- Abre el archivo .env
+- Busca la línea ADMIN_TOKEN=...
 - Ahí verás el token actual
+
+Si no existe el archivo .env:
+- Copia el archivo .env.example y renómbralo a .env
+- Edita los valores según tu configuración
 
 ═══════════════════════════════════════════════════════════════

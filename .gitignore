@@ -1,0 +1,18 @@
+# Variables de entorno (contiene credenciales sensibles)
+.env
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+*.tmp
+*.log
+*.bak
+*.swp
+*~
+
+# Backups de base de datos
+*.sql.backup
+backup.sql

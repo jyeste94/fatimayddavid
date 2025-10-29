@@ -2,25 +2,66 @@
 /**
  * Configuración de la Base de Datos
  * Archivo de configuración para la conexión a MySQL
+ * Lee las credenciales desde el archivo .env
  */
 
-// Configuración de la base de datos
-// IMPORTANTE: Actualiza estos valores con los datos de tu base de datos
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');  // Actualiza con tu usuario de MySQL
-define('DB_PASS', '');      // Actualiza con tu contraseña de MySQL
-define('DB_NAME', 'boda_fatima_david');  // Actualiza con el nombre de tu base de datos
+/**
+ * Función para cargar variables de entorno desde archivo .env
+ */
+function loadEnv($path = __DIR__ . '/.env') {
+    if (!file_exists($path)) {
+        die("Error: El archivo .env no existe. Copia .env.example a .env y configura tus credenciales.");
+    }
 
-// Token de acceso para el panel de administración
-// IMPORTANTE: Cambia este token por uno seguro y único
-define('ADMIN_TOKEN', 'fatima-david-2026-admin');  // Cambia este valor
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        // Ignorar comentarios
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+
+        // Parsear línea KEY=VALUE
+        if (strpos($line, '=') !== false) {
+            list($key, $value) = explode('=', $line, 2);
+            $key = trim($key);
+            $value = trim($value);
+
+            // Remover comillas si existen
+            $value = trim($value, '"\'');
+
+            // Establecer variable de entorno
+            putenv("$key=$value");
+            $_ENV[$key] = $value;
+            $_SERVER[$key] = $value;
+        }
+    }
+}
+
+// Cargar variables de entorno
+loadEnv();
+
+// Configuración de la base de datos desde .env
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_NAME', getenv('DB_NAME') ?: 'boda_fatima_david');
+
+// Token de acceso para el panel de administración desde .env
+define('ADMIN_TOKEN', getenv('ADMIN_TOKEN') ?: 'fatima-david-2026-admin');
 
 // Configuración de zona horaria
-date_default_timezone_set('Europe/Madrid');
+$timezone = getenv('TIMEZONE') ?: 'Europe/Madrid';
+date_default_timezone_set($timezone);
 
-// Configuración de errores (desactiva en producción)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Configuración de errores
+$debug_mode = getenv('DEBUG_MODE') === 'true';
+if ($debug_mode) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
 
 /**
  * Función para obtener la conexión a la base de datos

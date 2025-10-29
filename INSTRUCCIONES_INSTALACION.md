@@ -24,23 +24,46 @@
 mysql -u root -p < database.sql
 ```
 
-## ⚙️ Paso 2: Configurar la Conexión a la Base de Datos
+## ⚙️ Paso 2: Configurar Variables de Entorno (.env)
 
-1. Abre el archivo **config.php**
-2. Modifica las siguientes líneas con tus datos:
+1. En la carpeta del proyecto encontrarás un archivo **`.env.example`**
+2. **Copia** este archivo y renómbralo a **`.env`**
+   ```bash
+   cp .env.example .env
+   ```
+   (O simplemente copia y pega el archivo en Windows)
 
-```php
-define('DB_HOST', 'localhost');         // Normalmente es 'localhost'
-define('DB_USER', 'root');              // Tu usuario de MySQL
-define('DB_PASS', '');                  // Tu contraseña de MySQL
-define('DB_NAME', 'boda_fatima_david'); // Nombre de la base de datos
+3. Abre el archivo **`.env`** con un editor de texto
+4. Modifica los valores según tu configuración:
+
+```env
+# Configuración de la Base de Datos
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=boda_fatima_david
+
+# Token de acceso al panel de administración
+ADMIN_TOKEN=fatima-david-2026-admin
+
+# Configuración de zona horaria
+TIMEZONE=Europe/Madrid
+
+# Modo de depuración
+DEBUG_MODE=true
 ```
 
 ### Configuración típica para WAMP:
 - **DB_HOST**: `localhost`
 - **DB_USER**: `root`
-- **DB_PASS**: `` (vacío por defecto)
+- **DB_PASS**: (vacío por defecto)
 - **DB_NAME**: `boda_fatima_david`
+- **ADMIN_TOKEN**: Cámbialo por algo único y seguro
+
+### 🔒 Seguridad Importante:
+- ✅ El archivo `.env` está en `.gitignore` (no se subirá a Git)
+- ✅ NUNCA compartas tu archivo `.env`
+- ✅ Usa `.env.example` como plantilla para otros desarrolladores
 
 ## 🧪 Paso 3: Probar el Sistema
 
@@ -197,13 +220,19 @@ Tú puedes:
 
 ### 🔒 Configurar Token de Acceso
 
-**IMPORTANTE**: Antes de usar el panel, cambia el token de acceso en el archivo `config.php`:
+**IMPORTANTE**: Antes de usar el panel, cambia el token de acceso en el archivo `.env`:
 
-```php
-define('ADMIN_TOKEN', 'fatima-david-2026-admin');  // Cambia este valor por uno único
+```env
+ADMIN_TOKEN=tu-token-super-secreto-aqui
 ```
 
 **Ejemplo de token seguro:** `boda-2026-miTokenSuperSecreto-12345`
+
+💡 **Tip**: El token debe ser:
+- Mínimo 20 caracteres
+- Único (no uses el de ejemplo)
+- Difícil de adivinar
+- Sin espacios (usa guiones en su lugar)
 
 ### Acceder al Panel
 
