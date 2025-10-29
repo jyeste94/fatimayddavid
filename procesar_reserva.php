@@ -76,25 +76,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if (empty($password)) {
-        $response['message'] = 'Por favor, crea una contraseña para poder editar tu reserva más tarde.';
+    if (empty($email)) {
+        $response['message'] = 'Por favor, indica tu email.';
         mostrarRespuesta($response);
         exit;
     }
 
-    // Verificar si ya existe una reserva con este nombre
-    $reserva_id = reservaExiste($conn, $nombre);
+    // Verificar si ya existe una reserva con este email
+    $reserva_id = null;
+    $es_actualizacion = false;
 
-    if ($reserva_id) {
-        // La reserva existe, verificar contraseña
-        $reserva_actual = verificarCredenciales($conn, $nombre, $password);
+    // Si tiene contraseña, verificar si existe reserva con email + contraseña
+    if (!empty($password)) {
+        $stmt_check = $conn->prepare("SELECT id FROM reservas WHERE email = ? AND password = ?");
+        $stmt_check->bind_param("ss", $email, $password);
+        $stmt_check->execute();
+        $result_check = $stmt_check->get_result();
 
-        if (!$reserva_actual) {
-            $response['message'] = 'Ya existe una reserva con este nombre. Si quieres modificarla, debes usar la contraseña correcta.';
-            mostrarRespuesta($response);
-            exit;
+        if ($result_check->num_rows > 0) {
+            $row = $result_check->fetch_assoc();
+            $reserva_id = $row['id'];
+            $es_actualizacion = true;
         }
+        $stmt_check->close();
+    }
 
+    if ($es_actualizacion) {
         // Actualizar reserva existente
         $stmt = $conn->prepare("
             UPDATE reservas SET
@@ -115,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
 
         $stmt->bind_param(
-            "ssssiiissssssi",
+            "ssssiiiissssssi",
             $asistencia,
             $telefono,
             $email,
@@ -165,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
 
         $stmt->bind_param(
-            "ssssssiissssss",
+            "ssssssiiiisssss",
             $nombre,
             $password,
             $asistencia,
