@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
 
         $stmt->bind_param(
-            "ssssiiiissssssi",
+            "ssssiiiiissssi",
             $asistencia,
             $telefono,
             $email,
