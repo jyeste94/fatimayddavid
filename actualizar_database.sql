@@ -14,7 +14,8 @@ ALTER TABLE reservas MODIFY COLUMN password VARCHAR(255) DEFAULT NULL;
 ALTER TABLE reservas MODIFY COLUMN email VARCHAR(255) NOT NULL;
 
 -- Eliminar el índice único en nombre (permite nombres duplicados)
-ALTER TABLE reservas DROP INDEX idx_nombre;
+-- Primero verificar si existe y luego eliminarlo
+DROP INDEX IF EXISTS idx_nombre ON reservas;
 
--- Agregar índice en email para búsquedas rápidas
-CREATE INDEX idx_email ON reservas(email);
+-- Agregar índice en email para búsquedas rápidas (si no existe)
+CREATE INDEX IF NOT EXISTS idx_email ON reservas(email);
