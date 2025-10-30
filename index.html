@@ -25,17 +25,18 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	</meta>
 	<link href="assets/css/styles.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<style>
 		/* Estilos para la animación del timeline al hacer scroll */
 		.ribbon-icon-wrap {
 			transition: all 0.4s ease;
-		}
-
+		}	
 		/* Círculo del icono relleno cuando está activo */
 		.ribbon-icon-wrap.timeline-icon-active .ribbon-icon {
 			background-color: #7cb7a7 !important;
 			border-color: #7cb7a7 !important;
 			transition: all 0.4s ease;
+			color: #ffffff;
 		}
 
 		/* Icono blanco cuando está activo */
@@ -48,6 +49,63 @@
 		/* Efecto de escala suave al activarse */
 		.ribbon-icon-wrap.timeline-icon-active {
 			transform: scale(1.1);
+		}
+
+		/* Cambiar iconos de las tarjetas del timeline */
+		.dipi_timeline_font_icon.et-pb-icon::before {
+			display: inline-block !important;
+			font-family: "Font Awesome 6 Free" !important;
+			font-weight: 900 !important;
+			font-size: 40px !important;
+		}
+
+		/* Icono Basílica */
+		.dipi_timeline_item_0 .dipi_timeline_font_icon.et-pb-icon::before {
+			content: "\f51d" !important; /* fa-church */
+		}
+
+		/* Icono Cóctel */
+		.dipi_timeline_item_1 .dipi_timeline_font_icon.et-pb-icon::before {
+			content: "\f79f" !important; /* fa-champagne-glasses */
+		}
+
+		/* Icono Comida */
+		.dipi_timeline_item_2 .dipi_timeline_font_icon.et-pb-icon::before {
+			content: "\f2e7" !important; /* fa-utensils */
+		}
+
+		/* Icono Barra libre */
+		.dipi_timeline_item_3 .dipi_timeline_font_icon.et-pb-icon::before {
+			content: "\f561" !important; /* fa-martini-glass-citrus */
+		}
+
+		/* Estilos para los iconos de los círculos del timeline */
+		.ribbon-icon-circle {
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			position: relative !important;
+		}
+
+		.ribbon-icon-circle::before {
+			content: "\f004" !important; /* fa-heart - corazón */
+			font-family: "Font Awesome 6 Free" !important;
+			font-weight: 900 !important;
+			font-size: 22px !important;
+			color: #a0a0a0 !important;
+			transition: color 0.4s ease !important;
+		}
+
+		/* Corazón blanco cuando está activo */
+		.ribbon-icon-wrap.timeline-icon-active .ribbon-icon-circle::before,
+		.ribbon-icon-circle.timeline-icon-active::before {
+			color: #ffffff !important;
+		}
+
+		/* Círculo relleno cuando está activo (adicional) */
+		.ribbon-icon.timeline-icon-active,
+		.ribbon-icon-wrap.timeline-icon-active .ribbon-icon-circle {
+			background-color: #7cb7a7 !important;
 		}
 	</style>
 </head>
@@ -144,12 +202,19 @@
 																<div bis_skin_checked="1" class="et_pb_module_inner">
 																	<div bis_skin_checked="1" class="dipi_timeline_item_custom_classes dipi_timeline_item_position_left et_pb_bg_layout_" data-config='{"anim_name":"none","anim_start_viewport":"75%"} '>
 																		<div bis_skin_checked="1" class="dipi_timeline_item_container">
-																			<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
-																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap"><span class="et_pb_icon_wrap"><span class="ribbon-icon ribbon-icon-circle"></span></span>
+																			<div bis_skin_checked="1" class="dipi_timeline_ribbon">																				
+																			</div>
+																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap">
+																				<span class="et_pb_icon_wrap">
+																					<span class="ribbon-icon ribbon-icon-circle"></span>
+																				</span>
 																			</div>
 																			<div bis_skin_checked="1" class="dipi_timeline_item_card-wrap none animated">
 																				<div bis_skin_checked="1" class="dipi_timeline_item_card">
-																					<div bis_skin_checked="1" class="dipi_timeline_item_image"><span class="et_pb_image_wrap"><span class="dipi_timeline_font_icon et-pb-icon"></span></span>
+																					<div bis_skin_checked="1" class="dipi_timeline_item_image">
+																						<span class="et_pb_image_wrap">
+																							<span class="dipi_timeline_font_icon et-pb-icon"></span>
+																						</span>
 																					</div>
 																					<div bis_skin_checked="1" class="dipi_timeline_item_content">
 																						<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
@@ -172,11 +237,17 @@
 																	<div bis_skin_checked="1" class="dipi_timeline_item_custom_classes dipi_timeline_item_position_left et_pb_bg_layout_" data-config='{"anim_name":"fadeIn","anim_start_viewport":"75%"} '>
 																		<div bis_skin_checked="1" class="dipi_timeline_item_container">
 																			<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
-																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap"><span class="et_pb_icon_wrap"><span class="ribbon-icon ribbon-icon-circle"></span></span>
+																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap">
+																				<span class="et_pb_icon_wrap">
+																					<span class="ribbon-icon ribbon-icon-circle"></span>
+																				</span>
 																			</div>
 																			<div bis_skin_checked="1" class="dipi_timeline_item_card-wrap fadeIn animated">
 																				<div bis_skin_checked="1" class="dipi_timeline_item_card">
-																					<div bis_skin_checked="1" class="dipi_timeline_item_image"><span class="et_pb_image_wrap"><span class="dipi_timeline_font_icon et-pb-icon"></span></span>
+																					<div bis_skin_checked="1" class="dipi_timeline_item_image">
+																						<span class="et_pb_image_wrap">
+																							<span class="dipi_timeline_font_icon et-pb-icon"></span>
+																						</span>
 																					</div>
 																					<div bis_skin_checked="1" class="dipi_timeline_item_content">
 																						<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
@@ -199,11 +270,17 @@
 																	<div bis_skin_checked="1" class="dipi_timeline_item_custom_classes dipi_timeline_item_position_left et_pb_bg_layout_" data-config='{"anim_name":"fadeIn","anim_start_viewport":"75%"} '>
 																		<div bis_skin_checked="1" class="dipi_timeline_item_container">
 																			<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
-																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap"><span class="et_pb_icon_wrap"><span class="ribbon-icon ribbon-icon-circle"></span></span>
+																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap">
+																				<span class="et_pb_icon_wrap">
+																					<span class="ribbon-icon ribbon-icon-circle"></span>
+																				</span>
 																			</div>
 																			<div bis_skin_checked="1" class="dipi_timeline_item_card-wrap fadeIn animated">
 																				<div bis_skin_checked="1" class="dipi_timeline_item_card">
-																					<div bis_skin_checked="1" class="dipi_timeline_item_image"><span class="et_pb_image_wrap"><span class="dipi_timeline_font_icon et-pb-icon"></span></span>
+																					<div bis_skin_checked="1" class="dipi_timeline_item_image">
+																						<span class="et_pb_image_wrap">
+																							<span class="dipi_timeline_font_icon et-pb-icon"></span>
+																						</span>
 																					</div>
 																					<div bis_skin_checked="1" class="dipi_timeline_item_content">
 																						<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
@@ -226,11 +303,16 @@
 																	<div bis_skin_checked="1" class="dipi_timeline_item_custom_classes dipi_timeline_item_position_left et_pb_bg_layout_" data-config='{"anim_name":"fadeIn","anim_start_viewport":"75%"} '>
 																		<div bis_skin_checked="1" class="dipi_timeline_item_container">
 																			<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
-																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap"><span class="et_pb_icon_wrap"><span class="ribbon-icon ribbon-icon-circle"></span></span>
+																			<div bis_skin_checked="1" class="et_pb_image_wrap ribbon-icon-wrap">
+																				<span class="et_pb_icon_wrap">
+																					<span class="ribbon-icon ribbon-icon-circle"></span>
+																				</span>
 																			</div>
 																			<div bis_skin_checked="1" class="dipi_timeline_item_card-wrap fadeIn animated">
 																				<div bis_skin_checked="1" class="dipi_timeline_item_card">
-																					<div bis_skin_checked="1" class="dipi_timeline_item_image"><span class="et_pb_image_wrap"><span class="dipi_timeline_font_icon et-pb-icon"></span></span>
+																					<div bis_skin_checked="1" class="dipi_timeline_item_image">
+																						<span class="et_pb_image_wrap">
+																							<span class="dipi_timeline_font_icon et-pb-icon"></span></span>
 																					</div>
 																					<div bis_skin_checked="1" class="dipi_timeline_item_content">
 																						<div bis_skin_checked="1" class="dipi_timeline_ribbon"></div>
@@ -327,8 +409,8 @@
 									<div bis_skin_checked="1" class="et_pb_column et_pb_column_4_4 et_pb_column_9 et_pb_css_mix_blend_mode_passthrough et-last-child">
 										<div bis_skin_checked="1" class="et_pb_module et_pb_text et_pb_text_9 et_pb_text_align_left et_pb_bg_layout_light">
 											<div bis_skin_checked="1" class="et_pb_text_inner">
-												<p style="text-align: center;">Vuestra presencia es nuestro mayor regalo, pero si queréis hacer una aportación este es nuestro número de cuenta</p>
-												<p style="text-align: center;">ESXX XXXX XXXX XXXX XXXX XXXX</p>
+												<p style="text-align: center;">Lo más importante para nosotros es que estéis ahí. Si queréis tener un detalle, nos hará mucha ilusión recibirlo en persona</p>
+												<p style="text-align: center;">ES88 1465 0100 91 2029911529</p>
 											</div>
 										</div>
 									</div>
@@ -476,7 +558,7 @@
 								<div bis_skin_checked="1" class="et_pb_row et_pb_row_16">
 									<div bis_skin_checked="1" class="et_pb_column et_pb_column_4_4 et_pb_column_16 et_pb_css_mix_blend_mode_passthrough et-last-child">
 										<div bis_skin_checked="1" class="et_pb_button_module_wrapper et_pb_button_1_wrapper et_pb_button_alignment_center et_pb_module">
-											<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="https://photos.app.goo.gl/QqHrhP96q9vWEpdr6">ABRIR ÁLBUM</a>
+											<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="https://photos.app.goo.gl/TS7MD9w1rC5uvRvN7">ABRIR ÁLBUM</a>
 										</div>
 										<div bis_skin_checked="1" class="et_pb_module et_pb_text et_pb_text_19 et_pb_text_align_left et_pb_bg_layout_light">
 											<div bis_skin_checked="1" class="et_pb_text_inner">
@@ -677,17 +759,36 @@
 				const iconCenter = iconTop + (iconRect.height / 2);
 
 				// Calcular si el scroll ha llegado al icono
-				// El icono se activa cuando está en el 40% superior de la ventana
-				const activationPoint = scrollTop + (windowHeight * 0.4);
+				// El icono se activa cuando está en el 50% de la ventana
+				const activationPoint = scrollTop + (windowHeight * 0.5);
 
 				if (activationPoint >= iconCenter) {
-					// Activar el icono
-					
+					// Activar el icono y el círculo
 					iconWrap.classList.add('timeline-icon-active');
-					iconWrap.firstChild.firstChild.classList.add('timeline-icon-active');
+
+					// Buscar el círculo dentro del iconWrap y activarlo
+					const ribbonIcon = iconWrap.querySelector('.ribbon-icon');
+					if (ribbonIcon) {
+						ribbonIcon.classList.add('timeline-icon-active');
+					}
+
+					const ribbonIconCircle = iconWrap.querySelector('.ribbon-icon-circle');
+					if (ribbonIconCircle) {
+						ribbonIconCircle.classList.add('timeline-icon-active');
+					}
 				} else {
-					// Desactivar el icono (opcional, si quieres que se desactive al hacer scroll hacia arriba)
+					// Desactivar el icono
 					iconWrap.classList.remove('timeline-icon-active');
+
+					const ribbonIcon = iconWrap.querySelector('.ribbon-icon');
+					if (ribbonIcon) {
+						ribbonIcon.classList.remove('timeline-icon-active');
+					}
+
+					const ribbonIconCircle = iconWrap.querySelector('.ribbon-icon-circle');
+					if (ribbonIconCircle) {
+						ribbonIconCircle.classList.remove('timeline-icon-active');
+					}
 				}
 			});
 		}
